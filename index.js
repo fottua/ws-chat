@@ -22,7 +22,7 @@ wss.on('connection', function(ws) {
   clients[id] = ws;
   console.log("новое соединение " + id);
   for(var key in clients) {
-       clients[key].send(id + ': Вошёл в чат');
+       clients[key].send(id + '@-Вошёл в чат');
   }
   ws.on('message', function(message) {
     console.log('получено сообщение ' + message);
@@ -35,7 +35,7 @@ wss.on('connection', function(ws) {
   ws.on('close', function() {
     console.log('соединение закрыто ' + id);
         for(var key in clients) {
-            clients[key].send(id + ': Вышел из чата');
+            clients[key].send(id + ':@-Вышел из чата');
         }
     delete clients[id];
   });
