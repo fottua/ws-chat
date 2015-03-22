@@ -8,13 +8,13 @@ var socket = new WebSocket(host);
 
 // отправить сообщение из формы publish
 document.querySelector("textarea.form-control").onkeypress = function() {
-if ((event.which == 13 || event.keyCode == 13)&&(!event.shiftKey)) {
+if ((event.which == 13 || event.keyCode == 13)&&(!event.ctrlKey)) {
   var outgoingMessage = document.querySelector("textarea.form-control").value;
   socket.send(outgoingMessage);
   document.querySelector("textarea.form-control").value = "";
   return false;
   }
-else if (event.shiftKey) {
+else if (event.ctrlKey) {
   document.querySelector("textarea.form-control").value += "\r\n";
   return false;
   }
