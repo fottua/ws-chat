@@ -1,30 +1,209 @@
 <html>
-  <head>
-    <style>
-      body {
-        font-family: "Helvetica Neue", helvetica, arial;
-        padding: 15px;
-      }
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        line-height: 1.4;
-      }
-    </style>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Bootstrap Chat Box Example</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <!-- FONT AWESOME  CSS -->
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-    <script>
-      var host = location.origin.replace(/^http/, 'ws')
-      var ws = new WebSocket(host);
-      ws.onmessage = function (event) {
-        document.getElementById("pings").innerHTML = JSON.parse(event.data);
-      };
-    </script>
-  </head>
-  <body>
-    <h1>Pings</h1>
-    <ul id='pings'></ul>
-  </body>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <style>
+    .toggler { width: 100%; height: 100%;  position: relative; }
+    
+    #effect { width: 100%; height: auto; padding: 1em;  font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
+    .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
+  </style>
+	<style id="jsbin-css">
+p { margin:0; padding:0}
+.message {
+	
+	height: 100%;
+	width: 90%;
+	background: #F5F5F5;
+	clear: both;
+	overflow-y: scroll;
+}
+
+.author {
+	color: blue; 
+	margin-left: 20px; 
+	font-weight: bold; 
+	height: auto; 
+	float: left;
+}
+
+.text {
+	/*float: left; */
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.time {
+	vertical-align: top; 
+	margin-right: 20px; 
+	font-weight: bold; 
+	font-size: 0.8em; 
+	float: right;
+}
+
+.line {
+	width: 80%;
+	height: 1px;
+	background-color: #CCCCCC;
+	clear: both;
+	margin: 0 auto;
+}
+
+
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 600px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 4px;
+}
+
+
+/*
+ *  STYLE 1
+ */
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+/*
+ *  STYLE 2
+ */
+
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
+
+
+</style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row pad-top pad-bottom">
+            <div class="panel-body chat-box-main">
+                <div class="message"  id="style-2">
+				
+				
+  <!--   <div class="author">
+        <p>guest1:</p>
+    </div>
+  <div class="time">
+        <p>11:20:12<br />27/12/2013</p>
+    </div>
+    <div class="text">
+        <p>H1111ello, can you tell me something about English language?</p>
+    </div>
+    
+   
+</div>
+<div class="message">
+    <div class="author">
+        <p>guest234:</p>
+    </div>
+  <div class="time">
+        <p>11:21:41<br />27/12/2013</p>
+    </div>
+    <div class="text">
+        <p>English is a West Germanic language that was first spoken in early medieval England and is now the most widely used language in the world.[4] It is spoken as a first language by the majority populations of several sovereign states, including the United Kingdom, the United States, Canada, Australia, Ireland, New Zealand and a number of Caribbean nations. It is the third-most-common native language in the world, after Mandarin Chinese and Spanish.[5] It is widely learned as a second language and is an official language of the European Union, many Commonwealth countries and the United Nations, as well as in many world organisations.</p>
+    </div>
+    
+    <div class="line">
+    
+    </div>
+	
+	
+	-->
+
+
+	 
+<div class="toggler">
+  <div id="effect" class="ui-corner-all">
+      <span class="glyphicon glyphicon-pencil "></span> <span class="glyphicon  glyphicon-user"></span>libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+  </div>
+</div>		
+				
+				
+				
+                </div>
+                    <div class="chat-box-footer">
+                        <div class="input-group">
+						<textarea class="form-control" placeholder="Введите сюда текст сообщения..." cols="140" rows="5" style="resize: none; overflow-y: hidden; width: 100%; height: 100%;"></textarea>
+                            
+                            <span class="input-group-btn">
+                               <button class="btn btn-info" type="button">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+			</div>
+		</div>
+    </div>
+<!-- здесь будут появляться входящие сообщения -->
+<div id="subscribe"></div>
+    <!-- USING SCRIPTS BELOW TO REDUCE THE LOAD TIME -->
+    <!-- CORE JQUERY SCRIPTS FILE -->
+    <!-- CORE BOOTSTRAP SCRIPTS  FILE -->
+    
+	<script src="browser.js"></script>
+</body>
+
 </html>
