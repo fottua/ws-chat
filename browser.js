@@ -28,7 +28,7 @@ document.querySelector("button.btn.btn-info").onclick = function() {
 
 // обработчик входящих сообщений
 socket.onmessage = function(event) {
-  var incomingMessage = JSON.parse(event.data);
+  var incomingMessage = event.data;
   showMessage(incomingMessage); 
 };
 
