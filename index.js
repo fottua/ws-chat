@@ -37,7 +37,7 @@ wss.on('connection', function(ws) {
     
     for(var key in clients) {
       clients[key].send(id + ':@-Вышел из чата');
-      delete clients[key];
+      clients[key].send(clients[key]);
     }
     
   });
