@@ -36,11 +36,10 @@ wss.on('connection', function(ws) {
   ws.on('close', function() {
     console.log('соединение закрыто ' + id);
     
-    for(var key in clients) {
-      clients[key].send(id + ':@-Вышел из чата');
-     
+    for(var key in clients) {		      
+        clients[key].send(id + ':@-Вышел из чата');	
     }
-    
-  });
+      delete clients[id];		 +    
+    });
 
 });
