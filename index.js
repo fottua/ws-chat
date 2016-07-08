@@ -29,7 +29,7 @@ wss.on('connection', function(ws) {
 
     for(var key in clients) {
       clients[key].send(id + ': ' + message);
-      clients[key].send('  : .' + clients[key].length);
+      clients[key].send('  : .' + object.keys(clients));
     }
   });
 
@@ -39,7 +39,6 @@ wss.on('connection', function(ws) {
     for(var key in clients) {		      
         clients[key].send(id + ':@-Вышел из чата');	
     }
-      console.log(clients[id]);
     });
 
 });
